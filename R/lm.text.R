@@ -1,6 +1,6 @@
 #' Generates strings of text for the use in markdown documents
 #'
-#' This function takes as input one object containing a test result and returns its most important informations. Function lm.text takes the result of a regression (returned from a call to the lm function), returning its R², F-value (with corresponding model and residuals degrees of freedom) and P-value. In addition, they offer options to customize the output, like replacing names of some parameters, changing separators and decimal markers (helpful in case you are producing a manuscript in German or Portuguese), and choosing the number of digits to round number to.
+#' This function takes as input one object containing a test result and returns its most important informations. Function lm.text takes the result of a regression (returned from a call to the lm function), returning its R², F-value (with corresponding model and residuals degrees of freedom) and P-value. In addition, it offers options to customize the output, like replacing names of some parameters, changing separators and decimal markers (helpful in case you are producing a manuscript in German or Portuguese), and choosing the number of digits to round number to.
 #'
 #' @param x Name of the object containing the result of the analysis from which stats should be extracted
 #' @param sep How to separate pieces of information displayed. Defaults to a semicolon followed by a space (sep = "; ").
@@ -13,7 +13,7 @@
 #' utils::data(anorexia, package = "MASS")
 #' anorex.1 <- lm(Postwt ~ Prewt, data = anorexia)
 #' lm.text(anorex.1)
-                
+
 lm.text <- function(x, sep="; ", dec="default", digits=c(3, 3, 3)) {
   if (class(x) != "lm") stop("Not an object of class 'lm' ")
   f <- summary(x)$fstatistic

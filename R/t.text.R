@@ -15,6 +15,7 @@
 #' t.text(res)
 #' # Changing decimal marker in case you are producing a manuscript in German or Portuguese 
 #' t.text(res, dec=",")
+
 t.text <- function(x, df="df", sep="; ", dec="default", digits=c(3, 1, 3)){
   if (class(x) != "htest") stop("x is not an object of class 'htest' ")
   p <- round(x$p.value, digits[3])

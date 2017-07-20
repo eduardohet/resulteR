@@ -13,6 +13,7 @@
 #' mean.sd.text(x)
 #' # Rounding 
 #' mean.sd.text(x, digits=c(3, 3))
+
 mean.sd.text <- function(x, dec="default", digits=c(1, 1)){
   if (!is.numeric(x)) stop("x is not a numeric vector")
   res <- paste0(round(mean(x), digits[1]), " &plusmn; ", round(sd(x), digits[2]))

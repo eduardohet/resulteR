@@ -19,7 +19,7 @@ lm.text(x, sep = "; ", dec = "default", digits = c(3, 3, 3))
 A string of text to be included in a markdown object.
 }
 \description{
-This function takes as input one object containing a test result and returns its most important informations. Function lm.text takes the result of a regression (returned from a call to the lm function), returning its R², F-value (with corresponding model and residuals degrees of freedom) and P-value. In addition, they offer options to customize the output, like replacing names of some parameters, changing separators and decimal markers (helpful in case you are producing a manuscript in German or Portuguese), and choosing the number of digits to round number to.
+This function takes as input one object containing a test result and returns its most important informations. Function lm.text takes the result of a regression (returned from a call to the lm function), returning its R², F-value (with corresponding model and residuals degrees of freedom) and P-value. In addition, it offers options to customize the output, like replacing names of some parameters, changing separators and decimal markers (helpful in case you are producing a manuscript in German or Portuguese), and choosing the number of digits to round number to.
 }
 \examples{
 ## loading the anorexia dataset
