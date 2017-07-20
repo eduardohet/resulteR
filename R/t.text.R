@@ -9,6 +9,7 @@
 #' @param digits How many digits should be kept for each piece of numeric information? Defaults to c(3, 1, 3). Importantly, when a P-value rounded to the number of digits hereby defined results in zero, the result is replaced by a more theoretically meaningful alternative (e.g. P < 0.001).
 #' @return A string of text to be included in a markdown object.
 #' @export
+#' 
 #' @examples
 #' res <- t.test(extra ~ group, data = sleep)
 #' t.text(res)

@@ -7,6 +7,7 @@
 #' @param digits How many digits should be kept for each piece of numeric information? Defaults to c(1, 1).
 #' @return A string of text to be included in a markdown object.
 #' @export
+#' 
 #' @examples
 #' x <- rnorm(50, mean=10, sd=20)
 #' mean.sd.text(x)
