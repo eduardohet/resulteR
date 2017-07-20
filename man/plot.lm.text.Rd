@@ -5,19 +5,23 @@
 \title{Generates strings of text to add on existing plots}
 \usage{
 \method{plot}{lm.text}(x, sep = "; ", dec = "default", digits = c(3, 3,
-  3))
+  3), h = 0.5, v = 0.85, ...)
 }
 \arguments{
-\item{x}{Name of the object containing the result of the analysis from which stats should be extracted}
+\item{x}{Name of the object containing the result of the analysis from which stats should be extracted.}
 
 \item{sep}{How to separate pieces of information displayed. Defaults to a semicolon followed by a space (sep = "; ").}
 
 \item{dec}{Which decimal separator should be used? Defaults to ".". Allows to quickly changing to a comma in case you are producing a manuscript in German or Portuguese.}
 
 \item{digits}{How many digits should be kept for each piece of numeric information? Defaults to c(3, 3, 3). Importantly, when a P-value rounded to the number of digits hereby defined results in zero, the result is replaced by a more theoretically meaningful alternative (e.g. P < 0.001).}
+
+\item{h}{Horizontal positioning of the information to be added. Increases from 0 (left) to 1 (right).}
+
+\item{v}{Vertical positioning of the information to be added. Increases from 0 (bottom) to 1 (top).}
 }
 \value{
-A string of text in R expression notation to be added on plots
+A string of text in R expression notation to be added on plots.
 }
 \description{
 This function takes as input one object containing a test result and returns its most important informations. Function plot.lm.text takes the result of a regression (returned from a call to the lm function), returning its R², F-value (with corresponding model and residuals degrees of freedom) and P-value in the somewhat confusing expression notation. The result is aimed to be used on existing plots. In addition, the function offer options to customize the output, like replacing names of some parameters, changing separators and decimal markers (helpful in case you are producing a manuscript in German or Portuguese), and choosing the number of digits to round number to.
@@ -27,5 +31,8 @@ This function takes as input one object containing a test result and returns its
 utils::data(anorexia, package = "MASS")
 anorex.1 <- lm(Postwt ~ Prewt, data = anorexia)
 plot(Postwt ~ Prewt, data = anorexia)
-text(locator(1), text.reg.sum(anorex.1))
+plot.lm.text(anorex.1)
+# Previous example got a little bit off. The next settings should fix it.
+plot(Postwt ~ Prewt, data = anorexia)
+plot.lm.text(anorex.1, h=0.15, v=0.8, pos=4)
 }
