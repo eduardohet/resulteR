@@ -21,6 +21,8 @@ utils::data(anorexia, package = "MASS")
 anorex.1 <- lm(Postwt ~ Prewt, data = anorexia)
 lm.text(anorex.1)
 # "R^2^ = 0.11; F ~1,~ ~70~ = 8.695; P = 0.004"
+plot(Postwt ~ Prewt, data = anorexia)
+plot.lm.text(anorex.1, h=0.15, v=0.8, pos=4)
 
 x <- rnorm(50, mean=10, sd=20)
 mean.sd.text(x)
