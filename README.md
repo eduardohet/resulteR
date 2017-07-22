@@ -1,5 +1,17 @@
 # resulteR
+
 ResulteR is a set of functions that generate strings of text for the use in markdown documents. 
+
+## Installing
+
+```
+install.packages("devtools")
+library(devtools)
+install_github("eduardohet/resulteR")
+library(resulteR)
+```
+
+## Try it!
 
 ```
 res <- t.test(extra ~ group, data = sleep)
