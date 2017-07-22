@@ -8,6 +8,7 @@
 #' @param digits How many digits should be kept for each piece of numeric information? Defaults to c(3, 3, 3). Importantly, when a P-value rounded to the number of digits hereby defined results in zero, the result is replaced by a more theoretically meaningful alternative (e.g. P < 0.001).
 #' @param h Horizontal positioning of the information to be added. Increases from 0 (left) to 1 (right).
 #' @param v Vertical positioning of the information to be added. Increases from 0 (bottom) to 1 (top).
+#' @param ... Additional arguments to be passed to text function.
 #' @return A string of text in R expression notation to be added on plots.
 #' @export
 #' @examples

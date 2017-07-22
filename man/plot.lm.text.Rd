@@ -19,6 +19,8 @@
 \item{h}{Horizontal positioning of the information to be added. Increases from 0 (left) to 1 (right).}
 
 \item{v}{Vertical positioning of the information to be added. Increases from 0 (bottom) to 1 (top).}
+
+\item{...}{Additional arguments to be passed to text function.}
 }
 \value{
 A string of text in R expression notation to be added on plots.
