@@ -4,12 +4,10 @@
 \alias{tText}
 \title{Generates strings of text for the use in markdown documents}
 \usage{
-tText(x, df = "df", sep = "; ", dec = "default", digits = c(3, 1, 3))
+tText(x, sep = "; ", dec = "default", digits = c(3, 1, 3))
 }
 \arguments{
 \item{x}{Name of the object containing the result of the analysis from which stats should be extracted}
-
-\item{df}{How to word the abbreviation for degrees of freedom. Defaults to "df".}
 
 \item{sep}{How to separate pieces of information displayed. Defaults to a semicolon followed by a space (sep = "; ").}
 

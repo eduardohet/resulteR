@@ -14,27 +14,40 @@ library(resulteR)
 ## Try it!
 
 ```
+# t-tests
 res <- t.test(extra ~ group, data = sleep)
-t.text(res)
+tText(res)
 "t = -1.861; df = 17.8; P = 0.079"
-t.text(res, dec=",")
+tText(res, dec=",")
 "t = -1,861; df = 17,8; P = 0,079"
 
+# Regressions
 utils::data(anorexia, package = "MASS")
 anorex.1 <- lm(Postwt ~ Prewt, data = anorexia)
-lm.text(anorex.1)
+lmText(anorex.1)
 "R^2^ = 0.11; F ~1,~ ~70~ = 8.695; P = 0.004"
 
 plot(Postwt ~ Prewt, data = anorexia)
-plot.lm.text(anorex.1, h=0.15, v=0.8, pos=4)
+plotlmText(anorex.1, h=0.15, v=0.8, pos=4)
 
+# Correlations
+res <- cor.test(~Postwt + Prewt, data=anorexia)
+corText(res)
+res <- cor.test(~Postwt + Prewt, data=anorexia, method="spearman")
+corText(res)
+res <- cor.test(~Postwt + Prewt, data=anorexia, method="kendall")
+corText(res)
+
+# Descriptive statistics
 x <- rnorm(50, mean=10, sd=20)
-mean.sd.text(x)
+meansdText(x)
 "7.6 &plusmn; 18.7"
-mean.sd.text(x, digits=c(3, 3))
+meansdText(x, digits=c(3, 3))
 "7.625 &plusmn; 18.699"
 
+# Neat lists 
+# Hint: useful to grab names of significant parameters from a model result
 x <- c("apples", "oranges", "grapes")
-tidy.list(x)
-tidy.list(c(2.3, 5.4, 3), dec=",")
+tidyList(x)
+tidyList(c(2.3, 5.4, 3), dec=",", last="&")
 ```
