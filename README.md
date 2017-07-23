@@ -36,10 +36,10 @@ corText(res)
 # "r = 0.332; t~70~ = 2.949; P = 0.004"
 res <- cor.test(~Postwt + Prewt, data=anorexia, method="spearman")
 corText(res)
-# "\rho = 0.344; S = 40789.854; P = 0.003"
+# "&rho; = 0.344; S = 40789.854; P = 0.003"
 res <- cor.test(~Postwt + Prewt, data=anorexia, method="kendall")
 corText(res)
-# "\tau = 0.246; z = 3.049; P = 0.002"
+# "&tau; = 0.246; z = 3.049; P = 0.002"
 
 # Descriptive statistics
 x <- rnorm(50, mean=10, sd=20)
