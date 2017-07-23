@@ -6,10 +6,10 @@
 Test Output for Reproducible Documents
 }
 
-\description{ The \pkg{resulteR} package aims to facilitate the production of reproducible documents. }
+\description{ The \pkg{resulteR} package aims to facilitate the production of reproducible documents. 
+}
 
-\details{
-The \pkg{resulteR} package contains functions to extract information from the most common statistical analyses (regressions, Anova, t-tests, correlations, and &Chi;²-tests). Information extracted from tests and formatting applied follows the most common standards in scientific journals. Options to customize the output are also available.
+\details{ The \pkg{resulteR} package contains functions to extract information from the most common statistical analyses (regressions, Anova, t-tests, correlations, and &Chi;²-tests). Information extracted from tests and formatting applied follows the most common standards in scientific journals. Options to customize the output are also available.
 
 The \pkg{resulteR} package is developed at GitHub
 (\url{https://github.com/eduardohet/resulteR}). GitHub provides up-to-date information and forums for bug reports.
