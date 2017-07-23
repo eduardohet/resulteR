@@ -21,7 +21,7 @@ This function takes as input one vector and returns its mean and standard deviat
 }
 \examples{
 x <- rnorm(50, mean=10, sd=20)
-mean.sd.text(x)
+meansdText(x)
 # Rounding 
-mean.sd.text(x, digits=c(3, 3))
+meansdText(x, digits=c(3, 3))
 }

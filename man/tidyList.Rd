@@ -21,6 +21,6 @@ This function takes as input one character vector and constructs a meaningful te
 }
 \examples{
 x <- c("apples", "oranges", "grapes")
-tidy.list(x)
-tidy.list(c(2.3, 5.4, 3), dec=",")
+tidyList(x)
+tidyList(c(2.3, 5.4, 3), dec=",")
 }

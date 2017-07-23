@@ -11,9 +11,9 @@
 #' 
 #' @examples
 #' res <- t.test(extra ~ group, data = sleep)
-#' t.text(res)
+#' tText(res)
 #' # Changing decimal marker in case you are producing a manuscript in German or Portuguese 
-#' t.text(res, dec=",")
+#' tText(res, dec=",")
 
 tText <- function(x, sep="; ", dec="default", digits=c(3, 1, 3)){
   if (class(x) != "htest") stop("x is not an object of class 'htest' ")

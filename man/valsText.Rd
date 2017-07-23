@@ -21,5 +21,5 @@ This function takes as input one numeric value, rounds and changes decimal marke
 }
 \examples{
 x <- 5.46923
-vals.text(x, dec=",", digits=2)
+valsText(x, dec=",", digits=2)
 }

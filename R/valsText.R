@@ -9,7 +9,7 @@
 #' @export
 #' @examples
 #' x <- 5.46923
-#' vals.text(x, dec=",", digits=2)
+#' valsText(x, dec=",", digits=2)
 
 valsText <- function(x, dec="default", digits=3){
   res <- round(x, digits)

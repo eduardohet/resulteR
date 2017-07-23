@@ -9,8 +9,8 @@
 #' @export
 #' @examples
 #' x <- c("apples", "oranges", "grapes")
-#' tidy.list(x)
-#' tidy.list(c(2.3, 5.4, 3), dec=",")
+#' tidyList(x)
+#' tidyList(c(2.3, 5.4, 3), dec=",")
 
 tidyList <- function(x, sep=",", last="and", dec="."){
   num <- is.numeric(x)

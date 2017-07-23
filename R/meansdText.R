@@ -10,9 +10,9 @@
 #' 
 #' @examples
 #' x <- rnorm(50, mean=10, sd=20)
-#' mean.sd.text(x)
+#' meansdText(x)
 #' # Rounding 
-#' mean.sd.text(x, digits=c(3, 3))
+#' meansdText(x, digits=c(3, 3))
 
 meansdText <- function(x, dec="default", digits=c(1, 1)){
   if (!is.numeric(x)) stop("x is not a numeric vector")

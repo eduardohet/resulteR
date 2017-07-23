@@ -23,7 +23,7 @@ This function takes as input one object containing a test result and returns its
 }
 \examples{
 res <- t.test(extra ~ group, data = sleep)
-t.text(res)
+tText(res)
 # Changing decimal marker in case you are producing a manuscript in German or Portuguese 
-t.text(res, dec=",")
+tText(res, dec=",")
 }

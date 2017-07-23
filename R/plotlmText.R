@@ -16,10 +16,10 @@
 #' utils::data(anorexia, package = "MASS")
 #' anorex.1 <- lm(Postwt ~ Prewt, data = anorexia)
 #' plot(Postwt ~ Prewt, data = anorexia)
-#' plot.lm.text(anorex.1)
+#' plotlmText(anorex.1)
 #' # Previous example got a little bit off. The next settings should fix it.
 #' plot(Postwt ~ Prewt, data = anorexia)
-#' plot.lm.text(anorex.1, h=0.15, v=0.8, pos=4)
+#' plotlmText(anorex.1, h=0.15, v=0.8, pos=4)
 
 plotlmText <- function(x, sep="; ", dec="default", digits=c(3, 3, 3), h=0.5, v=0.85, ...) {
   if (class(x) != "lm") stop("x is not an object of class 'lm' ")

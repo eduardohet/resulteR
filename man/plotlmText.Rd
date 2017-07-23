@@ -33,8 +33,8 @@ This function takes as input one object containing a test result and returns its
 utils::data(anorexia, package = "MASS")
 anorex.1 <- lm(Postwt ~ Prewt, data = anorexia)
 plot(Postwt ~ Prewt, data = anorexia)
-plot.lm.text(anorex.1)
+plotlmText(anorex.1)
 # Previous example got a little bit off. The next settings should fix it.
 plot(Postwt ~ Prewt, data = anorexia)
-plot.lm.text(anorex.1, h=0.15, v=0.8, pos=4)
+plotlmText(anorex.1, h=0.15, v=0.8, pos=4)
 }
