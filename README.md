@@ -21,14 +21,21 @@ tText(res)
 tText(res, dec=",")
 # "t = -1,861; df = 17,8; P = 0,079"
 
-# Regressions
+# Regression
 utils::data(anorexia, package = "MASS")
 anorex.1 <- lm(Postwt ~ Prewt, data = anorexia)
 lmText(anorex.1)
 # "R^2^ = 0.11; F ~1,~ ~70~ = 8.695; P = 0.004"
 
+# Regression plots
 plot(Postwt ~ Prewt, data = anorexia)
+abline(anorex.1)
 plotlmText(anorex.1, h=0.15, v=0.8, pos=4)
+
+# Anova
+anorex.1 <- aov(Postwt ~ Treat + Prewt, data = anorexia)
+aovText(anorex.1, which.coef="Treat")
+aovText(anorex.1, which.coef="Prewt")
 
 # Correlations
 res <- cor.test(~Postwt + Prewt, data=anorexia)
