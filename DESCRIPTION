@@ -1,8 +1,8 @@
 Package: resulteR
-Title: Formats Tests Outputs for Easier Reproducible Documents
+Title: Test Output for Reproducible Documents
 Version: 0.0.2
 Date: 2017-07-20
-Author: person("Eduardo L.", "Hettwer Giehl", email = "eduardogiehl@gmail.com", role = c("aut"))
+Author: "Eduardo L. Hettwer Giehl" <eduardogiehl@gmail.com>
 Description: Generates strings of text for the use in markdown documents.
 Depends: R (>= 3.3.2)
 License: GPL-3
