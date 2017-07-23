@@ -4,8 +4,8 @@
 \alias{lmText}
 \title{Generates strings of text for the use in markdown documents}
 \usage{
-lmText(x, type = "global", sep = "; ", dec = "default", digits = c(3, 3,
-  3), adj.r.squared = TRUE, which.coef = NULL)
+lmText(x, type = "global", sep = "; ", dec = ".", digits = c(3, 3, 3),
+  adj.r.squared = TRUE, which.coef = NULL)
 }
 \arguments{
 \item{x}{Name of the object containing the result of the analysis from which stats should be extracted.}
@@ -26,7 +26,7 @@ lmText(x, type = "global", sep = "; ", dec = "default", digits = c(3, 3,
 A string of text to be included in a markdown object.
 }
 \description{
-This function takes as input one object containing a test result and returns its most important informations. Function lm.text takes the result of a regression (returned from a call to the lm function), returning its R², F-value (with corresponding model and residuals degrees of freedom) and P-value. In addition, it offers options to customize the output, like replacing names of some parameters, changing separators and decimal markers (helpful in case you are producing a manuscript in German or Portuguese), and choosing the number of digits to round number to.
+This function takes as input one object containing a test result and returns its most important informations. Function lmText takes the result of a regression (returned from a call to the lm function), returning its global statistics -- R², F-value (with corresponding model and residuals degrees of freedom) and P-value -- or statistics for specific coefficients. In addition, it offers options to customize the output, like replacing names of some parameters, changing separators and decimal markers (helpful in case you are producing a manuscript in German or Portuguese), and choosing the number of digits to round number to.
 }
 \examples{
 ## loading the anorexia dataset

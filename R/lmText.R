@@ -1,6 +1,6 @@
 #' Generates strings of text for the use in markdown documents
 #'
-#' This function takes as input one object containing a test result and returns its most important informations. Function lm.text takes the result of a regression (returned from a call to the lm function), returning its R², F-value (with corresponding model and residuals degrees of freedom) and P-value. In addition, it offers options to customize the output, like replacing names of some parameters, changing separators and decimal markers (helpful in case you are producing a manuscript in German or Portuguese), and choosing the number of digits to round number to.
+#' This function takes as input one object containing a test result and returns its most important informations. Function lmText takes the result of a regression (returned from a call to the lm function), returning its global statistics -- R², F-value (with corresponding model and residuals degrees of freedom) and P-value -- or statistics for specific coefficients. In addition, it offers options to customize the output, like replacing names of some parameters, changing separators and decimal markers (helpful in case you are producing a manuscript in German or Portuguese), and choosing the number of digits to round number to.
 #'
 #' @param x Name of the object containing the result of the analysis from which stats should be extracted.
 #' @param type Either "global" for global model statistics or "coefs", for specific variable betas and their significance. The default is "global".
@@ -23,7 +23,7 @@
 #' lmText(anorex.2, type="coefs", which.coef="TreatCont")
 #' lmText(anorex.2, type="coefs", which.coef=3)
 
-lmText <- function(x, type="global", sep="; ", dec="default", digits=c(3, 3, 3), adj.r.squared=TRUE, which.coef=NULL) {
+lmText <- function(x, type="global", sep="; ", dec=".", digits=c(3, 3, 3), adj.r.squared=TRUE, which.coef=NULL) {
   if (class(x) != "lm") stop("Not an object of class 'lm' ")
   
   if(type=="global"){
@@ -51,6 +51,11 @@ lmText <- function(x, type="global", sep="; ", dec="default", digits=c(3, 3, 3),
       
       tmp <- summary(x)$coefficients
       
+      if(length(which.coef) > 1){
+        warning("which.coef has length > 1 and only the first element will be used.")
+        which.coef <- which.coef[1]
+      }
+      
       if(is.character(which.coef) & !which.coef %in% rownames(tmp))
         stop(paste0("Unkown variable = **", which.coef, "**")) 
         
@@ -65,10 +70,10 @@ lmText <- function(x, type="global", sep="; ", dec="default", digits=c(3, 3, 3),
         paste0("P < ", 1/(10^digits[3])), paste0("P = ", p))
       out <- paste(
         paste0("*b* = ", lis$b),
-        paste0("t =", lis$t), 
+        paste0("t = ", lis$t), 
         lis$pval, sep=sep)
 
     } else { stop(paste0("Unkown type = **", type, "**")) }
   }
-  if(dec != "default") gsub(".", dec, out, fixed=T) else out
+  if(dec != ".") gsub(".", dec, out, fixed=T) else out
 }

@@ -1,6 +1,6 @@
 #' Generates strings of text to add on existing plots
 #'
-#' This function takes as input one object containing a test result and returns its most important informations. Function plot.lm.text takes the result of a regression (returned from a call to the lm function), returning its R², F-value (with corresponding model and residuals degrees of freedom) and P-value in the somewhat confusing expression notation. The result is aimed to be used on existing plots. In addition, the function offer options to customize the output, like replacing names of some parameters, changing separators and decimal markers (helpful in case you are producing a manuscript in German or Portuguese), and choosing the number of digits to round number to.
+#' This function takes as input one object containing a test result and returns its most important informations. Function plotlmText takes the result of a regression (returned from a call to the lm function), returning its R², F-value (with corresponding model and residuals degrees of freedom) and P-value in the somewhat confusing expression notation. The result is aimed to be used on existing plots. In addition, the function offer options to customize the output, like replacing names of some parameters, changing separators and decimal markers (helpful in case you are producing a manuscript in German or Portuguese), and choosing the number of digits to round number to.
 #'
 #' @param x Name of the object containing the result of the analysis from which stats should be extracted.
 #' @param sep How to separate pieces of information displayed. Defaults to a semicolon followed by a space (sep = "; ").
@@ -21,7 +21,7 @@
 #' plot(Postwt ~ Prewt, data = anorexia)
 #' plotlmText(anorex.1, h=0.15, v=0.8, pos=4)
 
-plotlmText <- function(x, sep="; ", dec="default", digits=c(3, 3, 3), h=0.5, v=0.85, ...) {
+plotlmText <- function(x, sep="; ", dec=".", digits=c(3, 3, 3), h=0.5, v=0.85, ...) {
   if (class(x) != "lm") stop("x is not an object of class 'lm' ")
   f <- summary(x)$fstatistic
   p <- round(pf(f[1], f[2], f[3], lower.tail=F), digits[3])
@@ -30,7 +30,7 @@ plotlmText <- function(x, sep="; ", dec="default", digits=c(3, 3, 3), h=0.5, v=0
   lis <- list(r2 = round(summary(x)$r.squared, digits[1]),
     fval=round(f[1], digits[2]), dfnum=f[2], dfde=f[3],
     pval=p, sep=sep)
-  if(dec != "default") lapply(lis, 
+  if(dec != ".") lapply(lis, 
     function(x) gsub(".", dec, x, fixed=T))
       
   eq <- substitute(plain(R)^2~"="~r2*sep*~~plain(F)[dfnum][", "][dfde]~"="~fval*sep*~pval, lis)

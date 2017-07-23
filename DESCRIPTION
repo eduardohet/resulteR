@@ -1,6 +1,6 @@
 Package: resulteR
 Title: Formats Tests Outputs for Easier Reproducible Documents
-Version: 0.0.1
+Version: 0.0.2
 Date: 2017-07-20
 Author: person("Eduardo L.", "Hettwer Giehl", email = "eduardogiehl@gmail.com", role = c("aut"))
 Description: Generates strings of text for the use in markdown documents.
