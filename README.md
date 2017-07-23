@@ -1,6 +1,6 @@
 # resulteR
 
-ResulteR is a set of functions that generate strings of text for the use in markdown documents. 
+ResulteR is a set of functions that generate strings of text for the use in markdown documents. It aims to help you build top level reproducible documents.
 
 ## Installing
 
