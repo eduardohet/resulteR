@@ -1,5 +1,5 @@
 Package: resulteR
-Title: Formats Test Outputs for Reproducible Documents
+Title: Formats Tests Outputs for Easier Reproducible Documents
 Version: 0.0.1
 Date: 2017-07-20
 Author: person("Eduardo L.", "Hettwer Giehl", email = "eduardogiehl@gmail.com", role = c("aut"))
