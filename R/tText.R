@@ -1,6 +1,6 @@
 #' Generates strings of text for the use in markdown documents
 #'
-#' This function takes as input one object containing a test result and returns its most important informations. Function t.text takes the result of a t-test (returned from a call to the t.test function), returning its t-value, number of degrees of freedom (possibly corrected) and the test P-value. It offers options to customize the output, like replacing names of some parameters, changing separators and decimal markers (helpful in case you are producing a manuscript in German or Portuguese), and choosing the number of digits to round number to.
+#' This function takes as input one object containing a test result and returns its most important informations. Function t.text takes the result of a t-test (returned from a call to the t.test function), returning its t-value, number of degrees of freedom (possibly corrected) and the test P-value. It offers options to customize the output, like changing separators and decimal markers (helpful in case you are producing a manuscript in German or Portuguese), and choosing the number of digits to round number to.
 #'
 #' @param x Name of the object containing the result of the analysis from which stats should be extracted
 #' @param sep How to separate pieces of information displayed. Defaults to a semicolon followed by a space (sep = "; ").

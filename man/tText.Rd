@@ -19,7 +19,7 @@ tText(x, sep = "; ", dec = "default", digits = c(3, 1, 3))
 A string of text to be included in a markdown object.
 }
 \description{
-This function takes as input one object containing a test result and returns its most important informations. Function t.text takes the result of a t-test (returned from a call to the t.test function), returning its t-value, number of degrees of freedom (possibly corrected) and the test P-value. It offers options to customize the output, like replacing names of some parameters, changing separators and decimal markers (helpful in case you are producing a manuscript in German or Portuguese), and choosing the number of digits to round number to.
+This function takes as input one object containing a test result and returns its most important informations. Function t.text takes the result of a t-test (returned from a call to the t.test function), returning its t-value, number of degrees of freedom (possibly corrected) and the test P-value. It offers options to customize the output, like changing separators and decimal markers (helpful in case you are producing a manuscript in German or Portuguese), and choosing the number of digits to round number to.
 }
 \examples{
 res <- t.test(extra ~ group, data = sleep)
