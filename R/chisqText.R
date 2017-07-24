@@ -35,7 +35,7 @@ chisqText <- function(x, df="df", sep="; ", dec="default", digits=c(3, 3)) {
     lis$pval <- ifelse(p == 0, 
       paste0("P < ", 1/(10^digits[2])), paste0("P = ", p))
     out <- paste(
-      paste0("&Chi;^2^ = ", lis$stat), 
+      paste0("$\\Xi^{2}$ = ", lis$stat), 
       paste0(df, " = ", lis$df),
       lis$pval, sep=sep)
   }
