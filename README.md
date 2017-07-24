@@ -38,7 +38,7 @@ anorexia.pre <- lmText(anorex.1)
 # In this case, there was no association between weight in pre- and post-treatment when treatments are not taken 
 # into account (`r anorexia.pre`).
 ```
-In this case, there was no association between weight in pre- and post-treatment when treatments are not taken into account (R^2^ = 0.11; F <sub>1, 70</sub> = 8.695; P = 0.004). 
+In this case, there was no association between weight in pre- and post-treatment when treatments are not taken into account (R² = 0.11; F <sub>1, 70</sub> = 8.695; P = 0.004). 
 
 
 ```r
@@ -52,10 +52,10 @@ anorexia.CBT <- lmText(anorex.2, type="coefs", which.coef="TreatCBT")
 # However, not always our models contain only one variable. Therefore we may need to word our results a little bit 
 # differently. For instance, when we take treatment and pre-weight into account, we reach a significant result 
 # (`r anorexia.full`) and function `lmText` takes care to appropriately change from regular to adjusted-R² 
-# ($\\bar{R}^{2}$). By further looking into the results, we see that patients in family (`r anorexia.ft`) and cognitive 
-# behavioural (`r anorexia.CBT`) treatments improved weight over patients in the control group.
+# ($\\bar{R}^{2}$). By further looking into the results, we see that patients in family (`r anorexia.ft`) and  
+# cognitive behavioural (`r anorexia.CBT`) treatments improved weight over patients in the control group.
 ```
-However, not always our models contain only one variable. Therefore we may need to word our results a little bit differently. For instance, when we take treatment and pre-weight into account, we reach a significant result (R^2 = 0.246; F <sub>3, 68</sub> = 8.713; P < 0.001) and function `lmText` takes care to appropriately change from regular to adjusted-R² ( {\displaystyle {\bar {R}}^{2}} {\bar  R}^{2} notation should change from R to R bar squared but I was unable to reproduce the exact output in GitHub). By further looking into the results, we see that patients in family (*b* = 8.66; t = 3.949; P < 0.001) and cognitive behavioural (*b* = 4.097; t = 2.164; P = 0.034) treatments improved weight over patients in the control group.
+However, not always our models contain only one variable. Therefore we may need to word our results a little bit differently. For instance, when we take treatment and pre-weight into account, we reach a significant result (R² = 0.246; F <sub>3, 68</sub> = 8.713; P < 0.001) and function `lmText` takes care to appropriately change from regular to adjusted-R² (notation should change from R to R bar squared but I was unable to reproduce the exact output in GitHub). By further looking into the results, we see that patients in family (*b* = 8.66; t = 3.949; P < 0.001) and cognitive behavioural (*b* = 4.097; t = 2.164; P = 0.034) treatments improved weight over patients in the control group.
 
 ### Regression plots
 
@@ -101,11 +101,12 @@ kendall.tau <- corText(res)
 # on the relationship of weight before and after treatment in the anorexia dataset. Below, we will apply the three 
 # methods available in function `cor.test`:
 
-# 1. Pearson's product-moment correlation: weight of patients correlated positively with their weights after the treatment (`r pearson.cor`)...
+# 1. Pearson's product-moment correlation: weight of patients correlated positively with their weights after the
+# treatment (`r pearson.cor`)...
 ```
 Another commonly used set of analysis is that of correlations. Let's have a look on the output of such analysis on the relationship of weight before and after treatment in the anorexia dataset. Below, we will apply the three methods available in function `cor.test`:
 
-1. Pearson's product-moment correlation: weight of patients correlated positively with their weights after the treatment (r = 0.332; t~70~ = 2.949; P = 0.004).
+1. Pearson's product-moment correlation: weight of patients correlated positively with their weights after the treatment (r = 0.332; t<sub>70</sub> = 2.949; P = 0.004).
 2. Spearman's rank correlation &rho;: weight of patients correlated positively with their weights after the treatment (&rho; = 0.344; S = 40789.9; P = 0.003).
 3. Kendall's rank correlation &tau;: weight of patients correlated positively with their weights after the treatment (&tau; = 0.246; z = 3.049; P = 0.002).
 
@@ -121,11 +122,11 @@ meandiff.ft <- meansdText(postwt$FT-prewt$FT)
 
 # Cheatsheet to produce the following neatly formatted result:
 # What about describing your data? Let's have a look on the anorexia dataset again. The mean and standard deviation 
-# of weights after the treatment is `r mean.postwt` lb. Having a look on patients in the control group, it seems that 
-# most lost weight (mean difference postwt-prewt: `r meandiff.cont` lb), whereas patients receiveing the family 
+# of weights after the treatment is `r mean.postwt` lb. Having a look on patients in the control group, it seems 
+# most weight lost (mean difference postwt-prewt: `r meandiff.cont` lb), whereas patients receiveing the family 
 # treatment improved their weight (`r meandiff.ft` lb).
 ```
-What about describing your data? Let's have a look on the anorexia dataset again. The mean and standard deviation of weights after the treatment is 85.2 &plusmn; 8 lb. Having a look on patients in the control group, it seems that most lost weight (mean difference postwt-prewt: -0.4 &plusmn; 8 lb), whereas patients receiveing the family treatment improved their weight (7.3 &plusmn; 7.2 lb).
+What about describing your data? Let's have a look on the anorexia dataset again. The mean and standard deviation of weights after the treatment is 85.2 &plusmn; 8 lb. Having a look on patients in the control group, it seems most weight lost (mean difference postwt-prewt: -0.4 &plusmn; 8 lb), whereas patients receiveing the family treatment improved their weight (7.3 &plusmn; 7.2 lb).
 
 ### Neat lists 
 
