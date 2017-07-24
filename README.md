@@ -22,7 +22,8 @@ res <- t.test(extra ~ group, data = sleep)
 sleep.res <- tText(res)
 
 # Cheatsheet to produce the following neatly formatted result: 
-# Now you just need to add your result with an inline call to that text string. Here you could say that means are similar in both sleep groups (`r sleep.res`).
+# Now you just need to add your result with an inline call to that text string. Here you could say that means 
+# are similar in both sleep groups (`r sleep.res`).
 ```
 Now you just need to add your result with an inline call to that text string. Here you could say that means are similar in both sleep groups (t<sub>17.8</sub> = -1.861; P = 0.079).
 
@@ -34,7 +35,8 @@ anorex.1 <- lm(Postwt ~ Prewt, data = anorexia)
 anorexia.pre <- lmText(anorex.1)
 
 # Cheatsheet to produce the following neatly formatted result: 
-# In this case, there was no association between weight in pre- and post-treatment when treatments are not taken into account (`r anorexia.pre`).
+# In this case, there was no association between weight in pre- and post-treatment when treatments are not taken 
+# into account (`r anorexia.pre`).
 ```
 In this case, there was no association between weight in pre- and post-treatment when treatments are not taken into account (R^2^ = 0.11; F <sub>1, 70</sub> = 8.695; P = 0.004). 
 
@@ -47,9 +49,13 @@ anorexia.ft <- lmText(anorex.2, type="coefs", which.coef="TreatFT")
 anorexia.CBT <- lmText(anorex.2, type="coefs", which.coef="TreatCBT")
 
 # Cheatsheet to produce the following neatly formatted result:
-# However, not always our models contain only one variable. Therefore we may need to word our results a little bit  differently. For instance, when we take treatment and pre-weight into account, we reach a significant result (`r anorexia.full`) and function `lmText` takes care to appropriately change from regular to adjusted-R² ($\\bar{R}^{2}$). By further looking into the results, we see that patients in family (`r anorexia.ft`) and cognitive  behavioural (`r anorexia.CBT`) treatments improved weight over patients in the control group.
+# However, not always our models contain only one variable. Therefore we may need to word our results a little bit 
+# differently. For instance, when we take treatment and pre-weight into account, we reach a significant result 
+# (`r anorexia.full`) and function `lmText` takes care to appropriately change from regular to adjusted-R² 
+# ($\\bar{R}^{2}$). By further looking into the results, we see that patients in family (`r anorexia.ft`) and cognitive 
+# behavioural (`r anorexia.CBT`) treatments improved weight over patients in the control group.
 ```
-However, not always our models contain only one variable. Therefore we may need to word our results a little bit differently. For instance, when we take treatment and pre-weight into account, we reach a significant result (<span style="text-decoration: overline">R</span>^2 = 0.246; F <sub>3, 68</sub> = 8.713; P < 0.001) and function `lmText` takes care to appropriately change from regular to adjusted-R² (<span style="text-decoration: overline">R</span>^2). By further looking into the results, we see that patients in family (*b* = 8.66; t = 3.949; P < 0.001) and cognitive behavioural (*b* = 4.097; t = 2.164; P = 0.034) treatments improved weight over patients in the control group.
+However, not always our models contain only one variable. Therefore we may need to word our results a little bit differently. For instance, when we take treatment and pre-weight into account, we reach a significant result (<span style="text-decoration: overline;">R</span>^2^ = 0.246; F <sub>3, 68</sub> = 8.713; P < 0.001) and function `lmText` takes care to appropriately change from regular to adjusted-R² (<span style="text-decoration: overline;">R</span>^2^). By further looking into the results, we see that patients in family (*b* = 8.66; t = 3.949; P < 0.001) and cognitive behavioural (*b* = 4.097; t = 2.164; P = 0.034) treatments improved weight over patients in the control group.
 
 ### Regression plots
 
@@ -72,7 +78,11 @@ aov.treat <- aovText(anorex.1, which.coef="Treat")
 aov.prewt <- aovText(anorex.1, which.coef="Prewt")
 
 # Cheatsheet to produce the following neatly formatted result:
-# Depending on the type of data in your analysis, you may have to report your results differently. For example, the analysis of anorexia treatment has two independent variables: treatment (Treat) and weight of patient before study period (Prewt). While this is actually an analysis called Ancova, some may want to represent its results by F and P-values for the two variables instead of betas from regressions. Therefore, one may say that there is an effect of both treatment (`r aov.treat`) and weight of patient before study period (`r aov.prewt`).
+# Depending on the type of data in your analysis, you may have to report your results differently. For example, 
+# the analysis of anorexia treatment has two independent variables: treatment (Treat) and weight of patient 
+# before study period (Prewt). While this is actually an analysis called Ancova, some may want to represent its 
+# results by F and P-values for the two variables instead of betas from regressions. Therefore, one may say that 
+# there is an effect of both treatment (`r aov.treat`) and weight of patient before study period (`r aov.prewt`).
 ```
 Depending on the type of data in your analysis, you may have to report your results differently. For example, the analysis of anorexia treatment has two independent variables: treatment (Treat) and weight of patient before study period (Prewt). While this is actually an analysis called Ancova, some may want to represent its results by F and P-values for the two variables instead of &beta;s from regressions. Therefore, one may say that there is an effect of both treatment (F <sub>2, 68</sub> = 9.436; P < 0.001) and weight of patient before study period (F <sub>1, 68</sub> = 7.266; P = 0.009).
 
@@ -87,7 +97,9 @@ res <- cor.test(~Postwt + Prewt, data=anorexia, method="kendall")
 kendall.tau <- corText(res)
 
 # Cheatsheet to produce the following neatly formatted result:
-# Another commonly used set of analysis is that of correlations. Let's have a look on the output of such analysis on the relationship of weight before and after treatment in the anorexia dataset. Below, we will apply the three methods available in function `cor.test`:
+# Another commonly used set of analysis is that of correlations. Let's have a look on the output of such analysis
+# on the relationship of weight before and after treatment in the anorexia dataset. Below, we will apply the three 
+# methods available in function `cor.test`:
 
 # 1. Pearson's product-moment correlation: weight of patients correlated positively with their weights after the treatment (`r pearson.cor`)...
 ```
@@ -108,7 +120,10 @@ meandiff.cont <- meansdText(postwt$Cont-prewt$Cont)
 meandiff.ft <- meansdText(postwt$FT-prewt$FT)
 
 # Cheatsheet to produce the following neatly formatted result:
-# What about describing your data? Let's have a look on the anorexia dataset again. The mean and standard deviation of weights after the treatment is `r mean.postwt` lb. Having a look on patients in the control group, it seems that most lost weight (mean difference postwt-prewt: `r meandiff.cont` lb), whereas patients receiveing the family treatment improved their weight (`r meandiff.ft` lb).
+# What about describing your data? Let's have a look on the anorexia dataset again. The mean and standard deviation 
+# of weights after the treatment is `r mean.postwt` lb. Having a look on patients in the control group, it seems that 
+# most lost weight (mean difference postwt-prewt: `r meandiff.cont` lb), whereas patients receiveing the family 
+# treatment improved their weight (`r meandiff.ft` lb).
 ```
 What about describing your data? Let's have a look on the anorexia dataset again. The mean and standard deviation of weights after the treatment is 85.2 &plusmn; 8 lb. Having a look on patients in the control group, it seems that most lost weight (mean difference postwt-prewt: -0.4 &plusmn; 8 lb), whereas patients receiveing the family treatment improved their weight (7.3 &plusmn; 7.2 lb).
 
