@@ -1,7 +1,7 @@
 # ResulteR: Test Results for Reproducible Documents
 by Eduardo L. Hettwer Giehl
 
-ResulteR is a set of functions that generate strings of text for the use in markdown documents. It aims to help you build top level reproducible documents.
+ResulteR implements functions to generate strings of text for the use in markdown documents. It aims to help you build top level reproducible documents.
 
 ## Installing
 
