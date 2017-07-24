@@ -55,7 +55,7 @@ anorexia.CBT <- lmText(anorex.2, type="coefs", which.coef="TreatCBT")
 # ($\\bar{R}^{2}$). By further looking into the results, we see that patients in family (`r anorexia.ft`) and cognitive 
 # behavioural (`r anorexia.CBT`) treatments improved weight over patients in the control group.
 ```
-However, not always our models contain only one variable. Therefore we may need to word our results a little bit differently. For instance, when we take treatment and pre-weight into account, we reach a significant result (<span style="text-decoration: overline;">R</span>^2^ = 0.246; F <sub>3, 68</sub> = 8.713; P < 0.001) and function `lmText` takes care to appropriately change from regular to adjusted-R² (<span style="text-decoration: overline;">R</span>^2^). By further looking into the results, we see that patients in family (*b* = 8.66; t = 3.949; P < 0.001) and cognitive behavioural (*b* = 4.097; t = 2.164; P = 0.034) treatments improved weight over patients in the control group.
+However, not always our models contain only one variable. Therefore we may need to word our results a little bit differently. For instance, when we take treatment and pre-weight into account, we reach a significant result (R^2 = 0.246; F <sub>3, 68</sub> = 8.713; P < 0.001) and function `lmText` takes care to appropriately change from regular to adjusted-R² ( {\displaystyle {\bar {R}}^{2}} {\bar  R}^{2} notation should change from R to R bar squared but I was unable to reproduce the exact output in GitHub). By further looking into the results, we see that patients in family (*b* = 8.66; t = 3.949; P < 0.001) and cognitive behavioural (*b* = 4.097; t = 2.164; P = 0.034) treatments improved weight over patients in the control group.
 
 ### Regression plots
 
