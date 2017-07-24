@@ -16,6 +16,6 @@
 
 meansdText <- function(x, dec="default", digits=c(1, 1)){
   if (!is.numeric(x)) stop("x is not a numeric vector")
-  res <- paste0(round(mean(x), digits[1]), " $ \\pm $ ", round(sd(x), digits[2]))
+  res <- paste0(round(mean(x), digits[1]), " $\\pm$ ", round(sd(x), digits[2]))
   if(dec != "default") gsub(".", dec, res, fixed=T) else res
 }
