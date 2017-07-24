@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Eduardo L. Hettwer Giehl" />
+
+
+<title>ResulteR: Test Results for Reproducible Documents</title>
+
+<script src="README_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="README_files/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="README_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="README_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="README_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="README_files/navigation-1.1/tabsets.js"></script>
+<link href="README_files/highlightjs-1.1/default.css" rel="stylesheet" />
+<script src="README_files/highlightjs-1.1/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">ResulteR: Test Results for Reproducible Documents</h1>
+<h4 class="author"><em>Eduardo L. Hettwer Giehl</em></h4>
+
+</div>
+
+
+<p>ResulteR is a set of functions that generate strings of text for the use in markdown documents. It aims to help you build top level reproducible documents.</p>
+<div id="installing" class="section level2">
+<h2>Installing</h2>
+<pre class="r"><code>install.packages(&quot;devtools&quot;)
+library(devtools)
+install_github(&quot;eduardohet/resulteR&quot;)
+library(resulteR)</code></pre>
+</div>
+<div id="trying-it-out" class="section level2">
+<h2>Trying it out</h2>
+<div id="t-tests" class="section level3">
+<h3>T-tests</h3>
+<pre class="r"><code>res &lt;- t.test(extra ~ group, data = sleep)
+sleep.res &lt;- tText(res)
+
+# Cheatsheet to produce the following neatly formatted result: 
+# Now you just need to add your result with an inline call to that text string. Here you could say that means are similar in both sleep groups (`r sleep.res`).</code></pre>
+<p>Now you just need to add your result with an inline call to that text string. Here you could say that means are similar in both sleep groups (t<sub>17.8</sub> = -1.861; P = 0.079).</p>
+</div>
+<div id="regression" class="section level3">
+<h3>Regression</h3>
+<pre class="r"><code>utils::data(anorexia, package = &quot;MASS&quot;)
+anorex.1 &lt;- lm(Postwt ~ Prewt, data = anorexia)
+anorexia.pre &lt;- lmText(anorex.1)
+
+# Cheatsheet to produce the following neatly formatted result: 
+# In this case, there was no association between weight in pre- and post-treatment when treatments are not taken into account (`r anorexia.pre`).</code></pre>
+<p>In this case, there was no association between weight in pre- and post-treatment when treatments are not taken into account (R<sup>2</sup> = 0.11; F <sub>1,</sub> <sub>70</sub> = 8.695; P = 0.004).</p>
+<pre class="r"><code>anorexia$Treat &lt;- relevel(anorexia$Treat, ref=&quot;Cont&quot;)
+anorex.2 &lt;- lm(Postwt ~ Treat + Prewt, data = anorexia)
+anorexia.full &lt;- lmText(anorex.2)
+anorexia.ft &lt;- lmText(anorex.2, type=&quot;coefs&quot;, which.coef=&quot;TreatFT&quot;)
+anorexia.CBT &lt;- lmText(anorex.2, type=&quot;coefs&quot;, which.coef=&quot;TreatCBT&quot;)
+
+# Cheatsheet to produce the following neatly formatted result:
+# However, not always our models contain only one variable. Therefore we may need to word our results a little bit  differently. For instance, when we take treatment and pre-weight into account, we reach a significant result (`r anorexia.full`) and function `lmText` takes care to appropriately change from regular to adjusted-R² ($\\bar{R}^{2}$). By further looking into the results, we see that patients in family (`r anorexia.ft`) and cognitive  behavioural (`r anorexia.CBT`) treatments improved weight over patients in the control group.</code></pre>
+<p>However, not always our models contain only one variable. Therefore we may need to word our results a little bit differently. For instance, when we take treatment and pre-weight into account, we reach a significant result (<span class="math inline">\(\bar{R}^{2}\)</span> = 0.246; F <sub>3,</sub> <sub>68</sub> = 8.713; P &lt; 0.001) and function <code>lmText</code> takes care to appropriately change from regular to adjusted-R² (<span class="math inline">\(\bar{R}^{2}\)</span>). By further looking into the results, we see that patients in family (<em>b</em> = 8.66; t = 3.949; P &lt; 0.001) and cognitive behavioural (<em>b</em> = 4.097; t = 2.164; P = 0.034) treatments improved weight over patients in the control group.</p>
+</div>
+<div id="regression-plots" class="section level3">
+<h3>Regression plots</h3>
+<p>In addition to test results inline in your texts, what about including the key results of your regression in your plot? Just ckeck out the figure below.</p>
+<pre class="r"><code>plot(Postwt ~ Prewt, data = anorexia)
+abline(anorex.1)
+plotlmText(anorex.1, h=0.15, v=0.8, pos=4)</code></pre>
+<p><img src="README_files/figure-html/reg.plot-1.png" width="1200" /></p>
+</div>
+<div id="anova" class="section level3">
+<h3>Anova</h3>
+<pre class="r"><code>anorex.1 &lt;- aov(Postwt ~ Treat + Prewt, data = anorexia)
+aov.treat &lt;- aovText(anorex.1, which.coef=&quot;Treat&quot;)
+aov.prewt &lt;- aovText(anorex.1, which.coef=&quot;Prewt&quot;)
+
+# Cheatsheet to produce the following neatly formatted result:
+# Depending on the type of data in your analysis, you may have to report your results differently. For example, the analysis of anorexia treatment has two independent variables: treatment (Treat) and weight of patient before study period (Prewt). While this is actually an analysis called Ancova, some may want to represent its results by F and P-values for the two variables instead of betas from regressions. Therefore, one may say that there is an effect of both treatment (`r aov.treat`) and weight of patient before study period (`r aov.prewt`).</code></pre>
+<p>Depending on the type of data in your analysis, you may have to report your results differently. For example, the analysis of anorexia treatment has two independent variables: treatment (Treat) and weight of patient before study period (Prewt). While this is actually an analysis called Ancova, some may want to represent its results by F and P-values for the two variables instead of <span class="math inline">\(\beta\)</span>s from regressions. Therefore, one may say that there is an effect of both treatment (F <sub>2,</sub> <sub>68</sub> = 9.436; P &lt; 0.001) and weight of patient before study period (F <sub>1,</sub> <sub>68</sub> = 7.266; P = 0.009).</p>
+</div>
+<div id="correlations" class="section level3">
+<h3>Correlations</h3>
+<pre class="r"><code>res &lt;- cor.test(~Postwt + Prewt, data=anorexia)
+pearson.cor &lt;- corText(res)
+res &lt;- cor.test(~Postwt + Prewt, data=anorexia, method=&quot;spearman&quot;)
+spearman.rho &lt;- corText(res, digits=c(3, 1, 3))
+res &lt;- cor.test(~Postwt + Prewt, data=anorexia, method=&quot;kendall&quot;)
+kendall.tau &lt;- corText(res)
+
+# Cheatsheet to produce the following neatly formatted result:
+# Another commonly used set of analysis is that of correlations. Let&#39;s have a look on the output of such analysis on the relationship of weight before and after treatment in the anorexia dataset. Below, we will apply the three methods available in function `cor.test`:
+
+# 1. Pearson&#39;s product-moment correlation: weight of patients correlated positively with their weights after the treatment (`r pearson.cor`)...</code></pre>
+<p>Another commonly used set of analysis is that of correlations. Let’s have a look on the output of such analysis on the relationship of weight before and after treatment in the anorexia dataset. Below, we will apply the three methods available in function <code>cor.test</code>:</p>
+<ol style="list-style-type: decimal">
+<li>Pearson’s product-moment correlation: weight of patients correlated positively with their weights after the treatment (r = 0.332; t<sub>70</sub> = 2.949; P = 0.004).</li>
+<li>Spearman’s rank correlation ρ: weight of patients correlated positively with their weights after the treatment ($ ho$ = 0.344; S = 40789.9; P = 0.003).</li>
+<li>Kendall’s rank correlation τ: weight of patients correlated positively with their weights after the treatment ($ au$ = 0.246; z = 3.049; P = 0.002).</li>
+</ol>
+</div>
+<div id="descriptive-statistics" class="section level3">
+<h3>Descriptive statistics</h3>
+<pre class="r"><code># Simple mean and standard deviation of a numeric vector
+mean.postwt &lt;- meansdText(anorexia$Postwt)
+prewt &lt;- with(anorexia, split(Prewt, list(Treat)))
+postwt &lt;- with(anorexia, split(Postwt, list(Treat)))
+meandiff.cont &lt;- meansdText(postwt$Cont-prewt$Cont)
+meandiff.ft &lt;- meansdText(postwt$FT-prewt$FT)
+
+# Cheatsheet to produce the following neatly formatted result:
+# What about describing your data? Let&#39;s have a look on the anorexia dataset again. The mean and standard deviation of weights after the treatment is `r mean.postwt` lb. Having a look on patients in the control group, it seems that most lost weight (mean difference postwt-prewt: `r meandiff.cont` lb), whereas patients receiveing the family treatment improved their weight (`r meandiff.ft` lb).</code></pre>
+<p>What about describing your data? Let’s have a look on the anorexia dataset again. The mean and standard deviation of weights after the treatment is 85.2 <span class="math inline">\(\pm\)</span> 8 lb. Having a look on patients in the control group, it seems that most lost weight (mean difference postwt-prewt: -0.4 <span class="math inline">\(\pm\)</span> 8 lb), whereas patients receiveing the family treatment improved their weight (7.3 <span class="math inline">\(\pm\)</span> 7.2 lb).</p>
+</div>
+<div id="neat-lists" class="section level3">
+<h3>Neat lists</h3>
+<pre class="r"><code>x &lt;- c(&quot;apples&quot;, &quot;oranges&quot;, &quot;grapes&quot;)
+fruits &lt;- tidyList(x)
+numbers &lt;- tidyList(c(2.3, 5.4, 3), sep=&quot;; &quot;, dec=&quot;,&quot;, last=&quot;&amp;&quot;)</code></pre>
+<p>The last function in the package is a small one to produce lists of any stuff you want. You may either list some fruits: apples, oranges, and grapes, or some numbers: 2,3; 5,4; &amp; 3. You may format the output as you wish. A final hint: this may be useful to grab names of significant parameters from a model result.</p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
