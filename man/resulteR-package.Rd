@@ -3,7 +3,7 @@
 \alias{resulteR}
 \docType{package}
 \title{
-Test Output for Reproducible Documents
+Test Results for Reproducible Documents
 }
 
 \description{ The \pkg{resulteR} package aims to facilitate the production of reproducible documents. 

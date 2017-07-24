@@ -34,7 +34,7 @@ lmText <- function(x, type="global", sep="; ", dec=".", digits=c(3, 3, 3), adj.r
     lis$numdf <- tmp$fstatistic[2]
     lis$dendf <- tmp$fstatistic[3]
     lis$r <- ifelse((lis$numdf > 1 & adj.r.squared), 
-      paste0("$\bar{R}$^2^ = ", round(tmp$adj.r.squared, 
+      paste0("$\\bar{R}^{2}$ = ", round(tmp$adj.r.squared, 
         digits[1])),
       paste0("R^2^ = ", round(tmp$r.squared, digits[1])))
     p <- round(pf(tmp$fstatistic[1], lis$numdf, lis$dendf, lower.tail=F), digits[3])
