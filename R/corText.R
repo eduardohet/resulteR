@@ -23,8 +23,8 @@ corText <- function(x, sep="; ", dec="default", digits=c(3, 3, 3)) {
   
   stat.names <- c(names(x$estimate), names(x$statistic))
   stat.names[1] <- ifelse(stat.names[1] == "cor", "r = ",
-    ifelse(stat.names[1] == "rho", "$\rho$ = ",
-    ifelse(stat.names[1] == "tau", "$\tau$ = ", "? = ")))
+    ifelse(stat.names[1] == "rho", "$\\rho$ = ",
+    ifelse(stat.names[1] == "tau", "$\\tau$ = ", "? = ")))
   lis <- list()
   lis$cor <- round(x$estimate, digits[1])
   lis$stat <- round(x$statistic, digits[2])
