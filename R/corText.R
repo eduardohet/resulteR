@@ -1,6 +1,6 @@
 #' Generates strings of text for the use in markdown documents
 #'
-#' This function takes as input one object containing the result of a correlation test (from a call to the cor.test function) and returns its most important informations. The exact information returned depends on the method used to for the correlation: Pearson's correlation returns r, t and degrees of freedom, and P-value; Spearman returns rho, S, and P-value; and Kendall returns tau, z, and P-value. Function corText offers options to customize the output, like changing separators and decimal markers (helpful in case you are producing a manuscript in German or Portuguese), and choosing the number of digits to round numbers.
+#' This function takes as input one object containing the result of a correlation test (from a call to the cor.test function) and returns its most important informations. The exact information returned depends on the method used for the correlation: Pearson's correlation returns r, t and degrees of freedom, and P-value; Spearman returns rho, S, and P-value; and Kendall returns tau, z, and P-value. Function corText offers options to customize the output, like changing separators and decimal markers (helpful in case you are producing a manuscript in German or Portuguese), and choosing the number of digits to round numbers.
 #'
 #' @param x Name of the object containing the result of the analysis from which stats should be extracted.
 #' @param sep How to separate pieces of information displayed. Defaults to a semicolon followed by a space (sep = "; ").
