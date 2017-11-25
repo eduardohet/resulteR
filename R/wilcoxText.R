@@ -11,11 +11,10 @@
 #' @export
 #' 
 #' @examples
-#' res <- wilcox.test(anorexia$Postwt, anorexia$Prewt)
-#' wilcoxText(res, df=length(anorexia$Postwt) + 
-#'   length(anorexia$Prewt))
-#' res <- wilcox.test(anorexia$Postwt, anorexia$Prewt, paired=T)
-#' wilcoxText(res, df=length(anorexia$Postwt))
+#' res <- wilcox.test(extra ~ group, data = sleep, paired=T)
+#' wilcoxText(res)
+#' # Changing decimal marker in case you are producing a manuscript in German or Portuguese 
+#' wilcoxText(res, dec=",")
 
 wilcoxText <- function(x, df=NULL, sep="; ", dec="default", digits=c(3, 3)) {
   if (class(x) != "htest") 

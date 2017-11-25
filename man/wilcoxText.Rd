@@ -24,9 +24,8 @@ A string of text to be included in a markdown object.
 This function takes as input one object containing the result of a one- and two-sample Wilcoxon tests on vectors of data (from a call to the wilcox.test function) and returns its most important informations. The exact information returned depends on the method used for the correlation: Pearson's correlation returns r, t and degrees of freedom, and P-value; Spearman returns rho, S, and P-value; and Kendall returns tau, z, and P-value. Function corText offers options to customize the output, like changing separators and decimal markers (helpful in case you are producing a manuscript in German or Portuguese), and choosing the number of digits to round numbers to.
 }
 \examples{
-res <- wilcox.test(anorexia$Postwt, anorexia$Prewt)
-wilcoxText(res, df=length(anorexia$Postwt) + 
-  length(anorexia$Prewt))
-res <- wilcox.test(anorexia$Postwt, anorexia$Prewt, paired=T)
-wilcoxText(res, df=length(anorexia$Postwt))
+res <- wilcox.test(extra ~ group, data = sleep, paired=T)
+wilcoxText(res)
+# Changing decimal marker in case you are producing a manuscript in German or Portuguese 
+wilcoxText(res, dec=",")
 }
