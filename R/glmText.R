@@ -10,7 +10,7 @@
 #' @param dec Which decimal separator should be used? Defaults to ".". Allows to quickly changing to a comma in case you are producing a manuscript in German or Portuguese.
 #' @param digits How many digits should be kept for each piece of numeric information? Defaults to c(3, 3, 3). Importantly, when a P-value rounded to the number of digits hereby defined results in zero, the result is replaced by a more theoretically meaningful alternative (e.g. P < 0.001).
 #' @param adj.r.squared Logic value indicating whether an automatic shift to adjusted R² should be allowed for multivariate models. Default is TRUE.
-#' @param which.coefs Vector indexing which of the potential many variables should be accessed when type = "coefs".
+#' @param which.coef Vector indexing which of the potential many variables should be accessed when type = "coefs".
 #' @return A string of text to be included in a markdown object.
 #' @export
 #' @examples

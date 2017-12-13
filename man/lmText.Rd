@@ -20,7 +20,7 @@ lmText(x, type = "global", sep = "; ", dec = ".", digits = c(3, 3, 3),
 
 \item{adj.r.squared}{Logic value indicating whether an automatic shift to adjusted R² should be allowed for multivariate models. Default is TRUE.}
 
-\item{which.coefs}{Vector indexing which of the potential many variables should be accessed when type = "coefs".}
+\item{which.coef}{Vector indexing which of the potential many variables should be accessed when type = "coefs".}
 }
 \value{
 A string of text to be included in a markdown object.

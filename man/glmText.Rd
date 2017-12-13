@@ -16,6 +16,8 @@ glmText(x, type = "global", test = FALSE, contrast = "~ 1",
 
 \item{contrast}{If test is required, the model provided is constrasted to a possibly simpler alternative. The default is the intercept-only model (contrast="~ 1"). Setting different models will change the output of delta-AIC and the deviance statistics.}
 
+\item{which.coef}{Vector indexing which of the potential many variables should be accessed when type = "coefs".}
+
 \item{sep}{How to separate pieces of information displayed. Defaults to a semicolon followed by a space (sep = "; ").}
 
 \item{dec}{Which decimal separator should be used? Defaults to ".". Allows to quickly changing to a comma in case you are producing a manuscript in German or Portuguese.}
@@ -23,8 +25,6 @@ glmText(x, type = "global", test = FALSE, contrast = "~ 1",
 \item{digits}{How many digits should be kept for each piece of numeric information? Defaults to c(3, 3, 3). Importantly, when a P-value rounded to the number of digits hereby defined results in zero, the result is replaced by a more theoretically meaningful alternative (e.g. P < 0.001).}
 
 \item{adj.r.squared}{Logic value indicating whether an automatic shift to adjusted R² should be allowed for multivariate models. Default is TRUE.}
-
-\item{which.coefs}{Vector indexing which of the potential many variables should be accessed when type = "coefs".}
 }
 \value{
 A string of text to be included in a markdown object.
